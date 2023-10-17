@@ -1,9 +1,9 @@
 <template>
   <main class="columns is-gapless is-multiline">
-    <div class="column is-one-quarter">
+    <div class="column is-one-fifth">
       <BarraLateral/>
     </div>
-    <div class="column is-three-quarter">
+    <div class="column is-four-fifth">
 
     </div>
 
