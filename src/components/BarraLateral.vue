@@ -6,11 +6,11 @@
     </header>
 </template>
 <script lang="ts">
-import { DefineComponent } from 'vue';
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
     name: 'BarraLateral'
-}
+})
 </script>
 <style scoped>
 header {
