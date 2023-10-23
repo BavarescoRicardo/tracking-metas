@@ -7,9 +7,8 @@
             </div>
             <div class="column">
                 <div class="is-flex is-align-itens-center is-justify-content-space-between">
-                    <section>
-                        <strong>{{ tempoDecorrido }}</strong>
-                    </section>
+                    <Objetivos :contagem="contagem"/>
+
                     <button class="button" @click="iniciar">
                         <i class="fas fa-play"></i>
                         <span>play</span>
@@ -26,26 +25,25 @@
 <script lang="ts">
 
 import { defineComponent } from 'vue';
+import Objetivos from '../components/Objetivos.vue'
 
 export default defineComponent ({
     // eslint-disable-next-line vue/multi-word-component-names
     name: 'Formulário',
+    components: {
+        Objetivos
+    },
     data () {
         return {
-            tempo: 0,
+            contagem: 0,
             crono: 0
-        }
-    },
-    computed: {
-        tempoDecorrido () {
-            return new Date(this.tempo * 1000).toISOString().substring(11,19);
         }
     },
     methods: {
         iniciar () {
             console.log('inicio');
             this.crono = setInterval( () => {
-                this.tempo += 1;
+                this.contagem += 1;
             }, 1000)
         },
         finalizar () {
