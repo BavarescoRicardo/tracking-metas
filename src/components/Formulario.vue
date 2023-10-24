@@ -9,14 +9,18 @@
                 <div class="is-flex is-align-itens-center is-justify-content-space-between">
                     <Objetivos :contagem="contagem"/>
 
-                    <button class="button" @click="iniciar">
-                        <i class="fas fa-play"></i>
+                    <button class="button" @click="iniciar" :disabled="cronometroRodando">
+                        <span class="icon">
+                            <i class="fas fa-play"></i>
+                        </span>
                         <span>play</span>
-                    </button>
-                    <button class="button" @click="finalizar">
-                        <i class="fas fa-stop"></i>
+                        </button>
+                        <button class="button" @click="finalizar" :disabled="!cronometroRodando">
+                        <span class="icon">
+                            <i class="fas fa-stop"></i>
+                        </span>
                         <span>stop</span>
-                    </button>            
+                    </button>          
                 </div>    
             </div>
         </div>
@@ -29,24 +33,27 @@ import Objetivos from '../components/Objetivos.vue'
 
 export default defineComponent ({
     // eslint-disable-next-line vue/multi-word-component-names
-    name: 'Formulário',
+    name: 'Formulário',    
     components: {
         Objetivos
     },
     data () {
         return {
             contagem: 0,
-            crono: 0
+            crono: 0,
+            cronometroRodando: false
         }
     },
     methods: {
         iniciar () {
+            this.cronometroRodando = true
             console.log('inicio');
             this.crono = setInterval( () => {
                 this.contagem += 1;
             }, 1000)
         },
         finalizar () {
+            this.cronometroRodando = false
             console.log('fim');
             clearInterval(this.crono);
         },        
