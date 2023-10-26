@@ -3,6 +3,7 @@
         <h1>
             <img src="../assets/objetivo.png" alt="Seus Objetivos">
         </h1>
+        <h2> Menu Lateral </h2>
     </header>
 </template>
 <script lang="ts">
@@ -13,8 +14,10 @@ export default defineComponent({
 })
 </script>
 <style scoped>
+
 header {
   background: #0a0a18;
+  color: #fbfdff;
   width: 100%;
   height: 100vh;
 }
@@ -26,6 +29,10 @@ img {
   padding: 1rem 0;
   margin-left: 5rem;
   border-radius: 3rem;
+} 
+
+h2 {
+  padding: 2em;
 }
 
 @media only screen and (max-width: 768px) {

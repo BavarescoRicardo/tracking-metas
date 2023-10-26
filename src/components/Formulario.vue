@@ -33,7 +33,8 @@ import Objetivos from '../components/Objetivos.vue'
 
 export default defineComponent ({
     // eslint-disable-next-line vue/multi-word-component-names
-    name: 'Formulário',    
+    name: 'Formulário',
+    emits: ['aoSalvar'],
     components: {
         Objetivos
     },
@@ -60,6 +61,10 @@ export default defineComponent ({
             this.gravarObjetivo(this.contagem)
         },
         gravarObjetivo (contagem: number) {
+            this.$emit('aoSalvar', {
+                descricao: this.meta,
+                contagem: contagem
+            })
             console.log("fim da tarefa")
             console.log("Vezes executada: "+ contagem)
             console.log("Nome da tarefa:  " + this.meta)
